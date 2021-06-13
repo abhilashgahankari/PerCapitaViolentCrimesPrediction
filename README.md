@@ -3,3 +3,4 @@ Brief experiments using genetic algorithms for feature selection for the regress
 # Discretization
 # Rules Generation
 Generating Rules from Discretized+Encoded data optimized using Genetic Feature Selections. sklearn.tree.DecisionTreeClassifier¶ is used to generate rules in text format with distinct classes based on probability, number of samples and gini index to measure hoe impure the partitions are.
+# Fuzzy Inference System
