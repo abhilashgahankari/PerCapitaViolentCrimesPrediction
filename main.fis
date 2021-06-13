@@ -1,0 +1,133 @@
+[System]
+Name='main'
+Type='mamdani'
+Version=2.0
+NumInputs=13
+NumOutputs=1
+NumRules=16
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='PctIlleg'
+Range=[0 1]
+NumMFs=4
+MF1='<=1.5':'trapmf',[-0.375 0 0.3 0.4]
+MF2='1.5<=2.5':'trimf',[0.35 0.5 0.65]
+MF3='>2.5':'trimf',[0.6 0.8 1.1]
+MF4='>1.5':'trapmf',[0.35 0.5 1 1.375]
+
+[Input2]
+Name='PctKids2Par'
+Range=[0 1]
+NumMFs=4
+MF1='<=1.5':'trapmf',[-0.1 0 0.3 0.4]
+MF2='>1.5':'trapmf',[0.35 0.45 1 1.1]
+MF3='<=3.5':'trapmf',[-0.01 0 0.8 0.9]
+MF4='>3.5':'trimf',[0.85 1 1.417]
+
+[Input3]
+Name='PctSpeakEnglOnly'
+Range=[0 1]
+NumMFs=2
+MF1='<=1.5':'trapmf',[-0.1 0 0.3 0.4]
+MF2='>1.5':'trapmf',[0.35 0.5 1 1.1]
+
+[Input4]
+Name='blackPerCap'
+Range=[0 1]
+NumMFs=2
+MF1='<=1.5':'trapmf',[-0.1 0 0.3 0.4]
+MF2='>1.5':'trapmf',[0.35 0.5 1 1.1]
+
+[Input5]
+Name='racePctWhite'
+Range=[0 1]
+NumMFs=2
+MF1='<=3.5':'trapmf',[-0.1 0 0.8 0.9]
+MF2='>3.5':'trapmf',[0.85 0.9 1 1.1]
+
+[Input6]
+Name='PctEmplProfServ'
+Range=[0 1]
+NumMFs=2
+MF1='<=3.5':'trapmf',[-0.1 0 0.8 0.9]
+MF2='>3.5':'trapmf',[0.85 0.9 1 1.1]
+
+[Input7]
+Name='racepctblack'
+Range=[0 1]
+NumMFs=2
+MF1='<=1.5':'trapmf',[-0.1 0 0.3 0.4]
+MF2='>1.5':'trapmf',[0.35 0.5 1 1.1]
+
+[Input8]
+Name='OwnOccLowQuart'
+Range=[0 1]
+NumMFs=2
+MF1='<=2.5':'trapmf',[-0.1 0 0.55 0.65]
+MF2='>2.5':'trapmf',[0.6 0.7 1 1.1]
+
+[Input9]
+Name='MedOwnCostPctIncNoMtg'
+Range=[0 1]
+NumMFs=2
+MF1='<=2.5':'trapmf',[-0.1 0 0.55 0.65]
+MF2='>2.5':'trapmf',[0.6 0.7 1 1.1]
+
+[Input10]
+Name='PctSameCity85'
+Range=[0 1]
+NumMFs=2
+MF1='<=1.5':'trapmf',[-0.1 0 0.3 0.4]
+MF2='>1.5':'trapmf',[0.35 0.5 1 1.1]
+
+[Input11]
+Name='HousVacant'
+Range=[0 1]
+NumMFs=2
+MF1='<=2.5':'trapmf',[-0.1 0 0.55 0.65]
+MF2='>2.5':'trapmf',[0.6 0.7 1 1.1]
+
+[Input12]
+Name='PctHousLess3BR'
+Range=[0 1]
+NumMFs=2
+MF1='<=3.5':'trapmf',[-0.1 0 0.8 0.9]
+MF2='>3.5':'trapmf',[0.85 0.9 1 1.1]
+
+[Input13]
+Name='PctRecImmig5'
+Range=[0 1]
+NumMFs=2
+MF1='<=3.5':'trapmf',[-0.1 0 0.8 0.9]
+MF2='>3.5':'trapmf',[0.85 0.9 1 1.1]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=3
+MF1='low':'trimf',[-0.4167 0 0.4]
+MF2='med':'trapmf',[0.3 0.4 0.6 0.7]
+MF3='high':'trimf',[0.6 1 1.417]
+
+[Rules]
+1 4 2 0 0 1 0 0 0 0 0 0 0, 1 (1) : 1
+1 3 0 1 0 0 1 0 0 0 0 0 0, 1 (1) : 1
+1 3 0 2 0 0 0 1 0 0 0 0 0, 1 (1) : 1
+2 0 0 0 1 0 0 0 1 0 0 0 0, 3 (1) : 1
+3 2 0 0 0 0 0 0 0 2 0 0 0, 3 (1) : 1
+2 0 0 0 2 0 0 0 1 0 1 0 0, 1 (1) : 1
+3 1 0 0 0 0 0 0 0 2 0 1 0, 3 (1) : 1
+1 3 0 2 0 0 0 2 0 0 0 0 0, 1 (1) : 1
+2 0 0 0 1 0 0 0 2 0 0 0 0, 1 (1) : 1
+1 4 2 0 0 2 0 0 0 0 0 0 0, 1 (1) : 1
+1 3 0 1 0 0 2 0 0 0 0 0 0, 1 (1) : 1
+3 1 0 0 0 0 0 0 0 0 0 2 0, 2 (1) : 1
+3 2 0 0 0 0 0 0 0 1 0 0 0, 1 (1) : 1
+2 0 0 0 2 0 0 0 0 0 2 0 0, 2 (1) : 1
+1 4 1 0 0 0 0 0 0 0 0 0 2, 1 (1) : 1
+1 4 1 0 0 0 0 0 0 0 0 0 1, 3 (1) : 1
